@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import {connectDb} from './config/db.js';
 import foodRouter from "./routes/FoodRoute.js";
+import userRouter from "./routes/userRoute.js";
+import cartRouter from "./routes/cartRoute.js";
 
 
 
@@ -22,11 +24,14 @@ connectDb()
 
 // api endpoints
 app.use("/api/food",foodRouter);
+app.use("/images",express.static('uploads'));
+app.use("/api/user",userRouter);
+app.use("/api/cart",cartRouter)
 
 
 
 app.get("/", (req, res) => {
-    res.send("Hello World!");
+    res.send("WORKING");
 })
 
 

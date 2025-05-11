@@ -1,13 +1,15 @@
-import {createContext, useState} from "react";
-import {food_list} from "../assets/frontend_assets/assets.js";
+import {createContext, useEffect, useState} from "react";
+import axios from "axios";
 
-export const StoreContext = createContext(null);
+const StoreContext = createContext(null);
 
 
 const StoreContextProvider = (props) => {
 
     const [cartItems, setCartItems] = useState({});
-
+    const url = "http://localhost:5000";
+    const [token, setToken] = useState("");
+    const [food_list, setFood_list] = useState([]);
 
     const addToCart = (itemId) => {
 
@@ -22,22 +24,42 @@ const StoreContextProvider = (props) => {
     }
     const getTotalCartAmount = () => {
         let totalAmount = 0;
-        for (const item of cartItems) {
-            if(cartItems[item] > 0) {
-                let itemInfo = food_list.find((product) => product._id === item);
-                totalAmount +=itemInfo.price * cartItems[item];
+        for (const itemId of Object.keys(cartItems)) {
+            const quantity = cartItems[itemId];
+            if (quantity > 0) {
+                const itemInfo = food_list.find((product) => product._id == itemId);
+                if (itemInfo) {
+                    totalAmount += itemInfo.price * quantity;
+                }
             }
-
         }
         return totalAmount;
     }
+    const fetchFoodList = async() => {
+        const response = await axios.get(url+"/api/food/list");
+        setFood_list(response.data.data);
+
+    }
+    useEffect(() => {
+
+        async function LoadData(){
+            await fetchFoodList()
+            if(localStorage.getItem("token")) {
+                setToken(localStorage.getItem("token"));
+            }
+        }
+        LoadData();
+    },[])
     const contextValue = {
         food_list,
         cartItems,
         setCartItems,
         addToCart,
         removeFromCart,
-        getTotalCartAmount
+        getTotalCartAmount,
+        url,
+        token,
+        setToken,
     }
 
 
@@ -49,4 +71,4 @@ const StoreContextProvider = (props) => {
 }
 
 
-export default StoreContextProvider;
+export { StoreContextProvider, StoreContext };
