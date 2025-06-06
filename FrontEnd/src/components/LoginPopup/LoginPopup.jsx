@@ -3,9 +3,11 @@ import "./LoginPopup.css"
 import {assets} from "../../assets/frontend_assets/assets.js";
 import {StoreContext} from "../../context/StoreContext.jsx";
 import axios from "axios";
+import {toast} from "react-toastify";
 function LoginPopup({setShowLogin}) {
     const {url,token,setToken} = useContext(StoreContext);
     const [currentState, setCurrentState] = useState("Sign Up");
+
     const [data, setData] = useState({
         name:"",
         email:"",
@@ -26,22 +28,29 @@ function LoginPopup({setShowLogin}) {
             case "Login":
                 newUrl+="/api/user/login";
                 break;
+            default:
+                return;
+        }
+        try {
+            const response =await axios.post(newUrl,data)
+            if(response.data.success){
+                toast.success(response.data.message);
+                setToken(response.data.token)
+                localStorage.setItem("token",response.data.token);
+                setShowLogin(false)
+            }
+            else{
+                console.log("Response from server:", response);
+                toast.error(response.data.message);
+            }
+        }catch (error) {
+            console.error("Login error:", error);
+            toast.error("Une erreur s'est produite. Veuillez réessayer.");
+        }
 
-        }
-        const response = axios.post(newUrl,data)
-        if(response.data.success){
-            setToken(response.data.token)
-            localStorage.setItem("token",response.data.token);
-            setShowLogin(false)
-        }
-        else{
-            alert(response.data.message);
-        }
 
     }
-    useEffect(() => {
-        console.log(data);
-    },[data])
+
     return (
         <div className="login-popup">
             <form onSubmit={onLogin} className="login-popup-container">

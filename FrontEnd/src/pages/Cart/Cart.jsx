@@ -8,15 +8,17 @@ function Cart() {
     return (
         <div className="cart">
             <div className="cart-items">
-                <div className="cart-items-title">
-                    <p>Items</p><p>Title</p><p>Price</p><p>Quantity</p><p>Total</p><p>Remove</p>
-                </div>
+                {food_list && food_list.length > 0 && (
+                    <div className="cart-items-title">
+                        <p>Items</p><p>Title</p><p>Price</p><p>Quantity</p><p>Total</p><p>Remove</p>
+                    </div>
+                )}
                 <br/>
                 <hr/>
-                {food_list.map((item,i)=>{
-                    if(cartItems[item._id]>0){
+                {food_list && food_list.length > 0 && food_list.map((item,i)=>{
+                    if(item && item._id && cartItems && cartItems[item._id] > 0){
                         return(
-                            <div key={i}>
+                            <div key={item._id}>
                                 <div className="cart-items-title cart-items-item">
                                     <img src={url+"/images/"+item.image} alt=""/>
                                     <p>{item.name}</p>
@@ -27,9 +29,9 @@ function Cart() {
                                 </div>
                                 <hr/>
                             </div>
-
                         )
                     }
+                    return null;
                 })}
             </div>
             <div className="cart-bottom">
@@ -50,7 +52,6 @@ function Cart() {
                             <p>Total</p>
                             <p>${getTotalCartAmount()=== 0 ? 0 :getTotalCartAmount()+2}</p>
                         </div>
-
                     </div>
                     <button onClick={()=>navigate('/order')}>PROCEED TO CHECKOUT</button>
                 </div>

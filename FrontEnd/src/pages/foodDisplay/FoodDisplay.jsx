@@ -14,7 +14,9 @@ function FoodDisplay({category}) {
                     }
                 })}
             </div>
+            <hr/>
         </div>
+
     );
 }
 

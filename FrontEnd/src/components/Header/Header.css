@@ -17,7 +17,18 @@
     bottom: 10%;
     left: 6vw;
 }
+.header-button{
+    display: inline-block;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    padding: 0.6rem 1.2rem;
+    background-color: white;
 
+}
 
 .header-contents h2{
     font-weight: 500;
