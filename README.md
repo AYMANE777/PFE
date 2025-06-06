@@ -19,7 +19,6 @@
 <br>
 <img alt="React" src="https://img.shields.io/badge/React-61DAFB.svg?style=flat&amp;logo=React&amp;logoColor=black" class="inline-block mx-1" style="margin: 0px 2px;">
 <img alt="Sequelize" src="https://img.shields.io/badge/Sequelize-52B0E7.svg?style=flat&amp;logo=Sequelize&amp;logoColor=white" class="inline-block mx-1" style="margin: 0px 2px;">
-<img alt="MySQL" src="https://img.shields.io/badge/MySQL-4479A1.svg?style=flat&amp;logo=MySQL&amp;logoColor=white" class="inline-block mx-1" style="margin: 0px 2px;">
 <img alt="Vite" src="https://img.shields.io/badge/Vite-646CFF.svg?style=flat&amp;logo=Vite&amp;logoColor=white" class="inline-block mx-1" style="margin: 0px 2px;">
 <img alt="Stripe" src="https://img.shields.io/badge/Stripe-635BFF.svg?style=flat&amp;logo=Stripe&amp;logoColor=white" class="inline-block mx-1" style="margin: 0px 2px;">
 <img alt="ESLint" src="https://img.shields.io/badge/ESLint-4B32C3.svg?style=flat&amp;logo=ESLint&amp;logoColor=white" class="inline-block mx-1" style="margin: 0px 2px;">
