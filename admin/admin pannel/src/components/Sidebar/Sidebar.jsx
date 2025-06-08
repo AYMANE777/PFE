@@ -18,6 +18,10 @@ function Sidebar(props) {
                     <img src={assets.order_icon} alt=""/>
                     <p>Orders</p>
                 </NavLink>
+                <NavLink to="/reservation" className="sidebar-option">
+                    <img src={assets.order_icon} alt=""/>
+                    <p>Reservations</p>
+                </NavLink>
             </div>
         </div>
     );
