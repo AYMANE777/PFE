@@ -9,21 +9,24 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const placeOrder = async (req, res) => {
     const fr_url = "http://localhost:5174";
     try {
+
         // Validate required fields
-        if (!req.body.userId || !req.body.items || !req.body.amount || !req.body.address) {
+        if (!req.userId || !req.body.items || !req.body.amount || !req.body.address) {
             return res.json({success: false, message: "Missing required fields"});
         }
+      
+        
 
         // Create new order
         const newOrder = await orderModel.create({
-            userId: req.body.userId,
+            userId: req.userId,
             items: req.body.items,
             amount: req.body.amount,
             address: req.body.address,
         });
 
         // Clear user's cart
-        await userModel.findByIdAndUpdate(req.body.userId, {cartData: {}});
+        await userModel.findByIdAndUpdate(req.userId, {cartData: {}});
 
         // Prepare line items for Stripe
         const line_items = req.body.items.map((item) => ({
@@ -83,7 +86,7 @@ const {orderId,success} = req.body;
 //orders frontend
 const userOrders = async (req, res) => {
     try {
-        const orders = await orderModel.find({userId:req.body.userId})
+        const orders = await orderModel.find({userId:req.userId})
         res.json({success:true,data:orders})
     }catch(err){
         console.log(err)
