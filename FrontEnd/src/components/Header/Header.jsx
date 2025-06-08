@@ -1,16 +1,16 @@
 import React from 'react';
-import "./Header.css"
+import './Header.css';
+
 function Header() {
-
-   
-
     return (
         <div className="header">
+            <div className="header-overlay" />
             <div className="header-contents">
                 <h2>Order your favorite food here</h2>
-                <p>Start your journey with crispy samosas, golden and flaky, filled with a spiced mix of potatoes, peas, and coriander, served with a side of tangy tamarind chutney. Alongside, enjoy a plate of gyoza, tender dumplings with a savory pork and vegetable filling, perfectly pan-seared for a crisp bottom and a juicy bite.</p>
-                <a href="#reservations" className='header-button'>Reserver</a>
-
+                <p>
+                    Start your journey with crispy samosas, golden and flaky, filled with a spiced mix of potatoes, peas, and coriander, served with tangy tamarind chutney. Enjoy savory gyoza dumplings—pan-seared to perfection.
+                </p>
+                <a href="#reservations" className="header-button">Reserve Now</a>
             </div>
         </div>
     );
