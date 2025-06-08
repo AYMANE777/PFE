@@ -45,7 +45,7 @@ function List({url}) {
                             <p>{item.name}</p>
                             <p>{item.category}</p>
                             <p>${item.price}</p>
-                            <p onClick={()=> removeFood(item._id)}>x</p>
+                            <p className='remove-item' onClick={()=> removeFood(item._id)}>x</p>
                         </div>
                     )
                 })}

@@ -19,7 +19,11 @@ hr{
   background-color: #a9a9a9;
 }
 .app-content{
-  display: flex;
+   display: flex;
+   flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
 
 }
 .flex-col{

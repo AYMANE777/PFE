@@ -1,14 +1,20 @@
-.navbar{
+.navbar {
+    background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 4%;
+    padding: 10px 5%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
 
+.logo {
+    height: 40px;
+    object-fit: contain;
 }
-.navbar .logo{
-    width: max(10%, 80px);
-    display: flex;
-}
-.navbar .profile{
+
+.profile {
+    height: 40px;
     width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
 }

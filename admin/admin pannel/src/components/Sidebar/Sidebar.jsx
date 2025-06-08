@@ -11,8 +11,8 @@ function Sidebar(props) {
                     <p>Add Items</p>
                 </NavLink>
                 <NavLink to="/list" className="sidebar-option">
-                    <img src={assets.order_icon} alt=""/>
-                    <p>Orders</p>
+                    <img src={assets.order_check} alt=""/>
+                    <p>List Food</p>
                 </NavLink>
                 <NavLink to="/orders" className="sidebar-option">
                     <img src={assets.order_icon} alt=""/>

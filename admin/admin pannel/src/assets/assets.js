@@ -4,13 +4,17 @@ import order_icon from './order_icon.png'
 import profile_image from './profile_image.png'
 import upload_area from './upload_area.png'
 import parcel_icon from './parcel_icon.png'
+import order_check from './check-out.png'
+import chef from './chef.jpg'
 
 export const assets ={
+    chef,
     logo,
     add_icon,
     order_icon,
     profile_image,
     upload_area,
+    order_check,
     parcel_icon
 }
 

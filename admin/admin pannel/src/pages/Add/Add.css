@@ -1,35 +1,82 @@
-.add{
-    width: 70%;
-    margin-left: max(5vw,25px);
-    margin-top: 50px;
-    color: #6d6d6d;
-    font-size: 16px;
+.add-container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
 }
-.add form{
+
+.add-form {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
-.add-image-upload img{
-    width: 120px;
-}
-.add-product-name, .add-product-description{
-    width: max(40%,280px);
-}
-.add-product-name input, .add-product-description textarea{
-    padding: 10px;
-}
-.add-category-price{
+
+.form-section {
     display: flex;
-    gap:30px
+    flex-direction: column;
+    gap: 8px;
 }
-.add-category-price select,.add-category-price input{
-    max-width: 120px;
-    padding: 10px;
+#root > div > div.app-main > div.app-content > div > form > div.form-section.image-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
-.add-btn{
-    max-width: 120px;
-    border: none;
-    padding: 10px;
-    background-color: black;
-    color: white;
+
+
+.form-section input,
+.form-section textarea,
+.form-section select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #f9f9f9;
+}
+
+.image-upload img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
     cursor: pointer;
+    border: 2px dashed #ccc;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.submit-btn {
+    align-self: flex-end;
+    padding: 12px 24px;
+    background-color: #222;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #000;
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        flex-direction: column;
+    }
+
+    .submit-btn {
+        width: 100%;
+        align-self: center;
+    }
 }
