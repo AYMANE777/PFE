@@ -23,4 +23,13 @@ const createReservation = async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 };
-export {createReservation};
+const getAllReservations = async (req, res) => {
+    try {
+        const reservations = await reservationModel.find();
+        res.status(200).json(reservations);
+    } catch (error) {
+        console.error('Error fetching reservations:', error);
+        res.status(500).json({ message: 'Server error' });
+    }
+}
+export {createReservation,getAllReservations};
