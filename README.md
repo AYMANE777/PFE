@@ -40,7 +40,7 @@
 </ul>
 <hr>
 <h2>Overview</h2>
-<p>PFE is a powerful developer tool designed to streamline the creation of e-commerce applications, offering a robust backend and dynamic frontend.</p>
+<p>E-Res is a powerful developer tool designed to streamline the creation of e-commerce applications, offering a robust backend and dynamic frontend.</p>
 <p><strong>Why PFE?</strong></p>
 <p>This project empowers developers to build scalable e-commerce solutions effortlessly. The core features include:</p>
 <ul class="list-disc pl-4 my-0">
