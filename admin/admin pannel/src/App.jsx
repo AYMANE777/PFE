@@ -8,6 +8,7 @@ import List from "./pages/List/List.jsx";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Reservation from './pages/Reservation/Reservation.jsx';
+import AdminDashboard from "./pages/Status/AdminDashboard.jsx";
 
 function App() {
   const url = "http://localhost:5000";
@@ -20,10 +21,11 @@ function App() {
         <Sidebar />
         <div className="app-content">
           <Routes>
-            <Route path="/add" element={<Add url={url} />} />
-            <Route path="/list" element={<List url={url} />} />
-            <Route path="/orders" element={<Orders url={url} />} />
-            <Route path="/reservation" element={<Reservation url={url} />} />
+              <Route path="/" element={<AdminDashboard url={url}/>}/>
+              <Route path="/add" element={<Add url={url}/>}/>
+              <Route path="/list" element={<List url={url}/>}/>
+              <Route path="/orders" element={<Orders url={url}/>}/>
+              <Route path="/reservation" element={<Reservation url={url}/>}/>
           </Routes>
         </div>
       </div>
