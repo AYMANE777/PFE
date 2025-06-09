@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 function Reservation() {
 
-    const {url} = useContext(StoreContext);
+    const {url,token} = useContext(StoreContext);
     const [data, setData] = useState({
         name: '',
         email: '',
@@ -26,9 +26,10 @@ function Reservation() {
     const handleReservation = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`${url}/api/reservation/add`,data );
-            console.log(response);
-            if (response.status === 201) {
+            const response = await axios.post(`${url}/api/reservation/add`,data,{headers: {token}} );
+
+            if (response.status === 201 && token) {
+
                 Swal.fire({
                     title: "Réservation confirmée avec succès !",
                     text: "Merci pour votre réservation. Nous sommes ravis de vous accueillir au restaurant.",
@@ -43,7 +44,10 @@ function Reservation() {
                     specialRequests: '',
                 });
             } else {
-                toast.error(`Error: ${response.data.message}`);
+                Swal.fire({
+                    icon: "error",
+                    title: "Login First",
+                });
             }
         } catch (err) {
             console.error('Submit error:', err);

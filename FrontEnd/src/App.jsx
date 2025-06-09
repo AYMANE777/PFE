@@ -8,6 +8,7 @@ import Footer from "./pages/Footer/Footer.jsx";
 import LoginPopup from "./components/LoginPopup/LoginPopup.jsx";
 import Verify from "./pages/Verify/Verify.jsx";
 import MyOrders from "./pages/MyOrders/MyOrders.jsx";
+import MyReservations from "./pages/MyReservation/MyReservations.jsx";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
                     <Route path="/order" element={<PlaceOrder/>}/>
                     <Route path="/verify" element={<Verify/>}/>
                     <Route path="/myorders" element={<MyOrders/>}/>
+                    <Route path="/myreservations" element={<MyReservations/>}/>
                 </Routes>
 
 

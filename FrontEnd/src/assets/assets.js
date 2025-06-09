@@ -8,9 +8,11 @@ import panier from "./noto--basket.png"
 import profile_icon from "./frontend_assets/profile_icon.png"
 import bag_icon from "./frontend_assets/bag_icon.png"
 import logout_icon from "./frontend_assets/logout_icon.png"
+import foodly from './foodly.png'
 
 
 export const assets = {
+    foodly,
     logo,
     search,
     blue_search,

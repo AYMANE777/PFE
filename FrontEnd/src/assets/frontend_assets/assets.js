@@ -20,6 +20,7 @@ import food_6 from './food_6.png'
 import food_7 from './food_7.png'
 import food_8 from './food_8.png'
 import food_9 from './food_9.png'
+import foodly from './foodly.png'
 import food_10 from './food_10.png'
 import food_11 from './food_11.png'
 import food_12 from './food_12.png'
@@ -79,7 +80,8 @@ export const assets = {
     profile_icon,
     logout_icon,
     bag_icon,
-    parcel_icon
+    parcel_icon,
+    foodly
 }
 
 export const menu_list = [

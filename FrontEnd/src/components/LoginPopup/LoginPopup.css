@@ -6,6 +6,9 @@
   place-items: center;
   z-index: 1000;
 }
+#root > div.login-popup > form > div.login-popup-condition > input[type=checkbox]{
+  width: 50px;
+}
 
 .login-popup-container {
   width: min(90vw, 400px);
