@@ -2,6 +2,7 @@ import React from 'react';
 import "./Sidebar.css"
 import {assets} from "../../assets/assets.js";
 import {NavLink} from "react-router-dom";
+import reserv from "../../assets/reservation.png";
 function Sidebar(props) {
     return (
         <div className="sidebar">
@@ -19,7 +20,7 @@ function Sidebar(props) {
                     <p>Orders</p>
                 </NavLink>
                 <NavLink to="/reservation" className="sidebar-option">
-                    <img src={assets.order_icon} alt=""/>
+                    <img src={assets.reserv} alt=""/>
                     <p>Reservations</p>
                 </NavLink>
             </div>

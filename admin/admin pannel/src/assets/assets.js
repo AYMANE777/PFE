@@ -6,8 +6,10 @@ import upload_area from './upload_area.png'
 import parcel_icon from './parcel_icon.png'
 import order_check from './check-out.png'
 import chef from './chef.jpg'
+import reserv from './reservation.png'
 
 export const assets ={
+    reserv,
     chef,
     logo,
     add_icon,
