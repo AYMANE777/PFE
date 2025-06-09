@@ -29,7 +29,11 @@ const reservationSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now,
-    }
+    },
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user',
+        required: true,},
 });
 const reservationModel = mongoose.models.reservation || mongoose.model('reservation', reservationSchema);
 export default reservationModel;
