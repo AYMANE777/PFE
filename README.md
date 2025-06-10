@@ -1,8 +1,8 @@
-
+<div class="border border-border rounded-lg bg-background p-6 shadow-sm"><div class="prose prose-sm md:prose-base lg:prose-lg max-w-none prose-headings:font-bold prose-a:text-blue-600" style="user-select: none;"><div id="top" class="">
 
 <div align="center" class="text-center">
 <h1>PFE</h1>
-<p><em>Elevate your dining experience with seamless convenience.</em></p>
+<p><em>Elevate dining experiences with seamless e-commerce solutions.</em></p>
 
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/AYMANE777/PFE?style=flat&amp;logo=git&amp;logoColor=white&amp;color=0080ff" class="inline-block mx-1" style="margin: 0px 2px;">
 <img alt="repo-top-language" src="https://img.shields.io/github/languages/top/AYMANE777/PFE?style=flat&amp;color=0080ff" class="inline-block mx-1" style="margin: 0px 2px;">
@@ -23,6 +23,7 @@
 <img alt="Stripe" src="https://img.shields.io/badge/Stripe-635BFF.svg?style=flat&amp;logo=Stripe&amp;logoColor=white" class="inline-block mx-1" style="margin: 0px 2px;">
 <img alt="ESLint" src="https://img.shields.io/badge/ESLint-4B32C3.svg?style=flat&amp;logo=ESLint&amp;logoColor=white" class="inline-block mx-1" style="margin: 0px 2px;">
 <img alt="Axios" src="https://img.shields.io/badge/Axios-5A29E4.svg?style=flat&amp;logo=Axios&amp;logoColor=white" class="inline-block mx-1" style="margin: 0px 2px;">
+<img alt="Bootstrap" src="https://img.shields.io/badge/Bootstrap-7952B3.svg?style=flat&amp;logo=Bootstrap&amp;logoColor=white" class="inline-block mx-1" style="margin: 0px 2px;">
 </div>
 <br>
 <hr>
@@ -40,15 +41,16 @@
 </ul>
 <hr>
 <h2>Overview</h2>
-<p>E-Res is a powerful developer tool designed to streamline the creation of e-commerce applications, offering a robust backend and dynamic frontend.</p>
+<p>E-Res is a powerful developer tool designed to streamline the creation of e-commerce applications, particularly in the dining sector.</p>
 <p><strong>Why PFE?</strong></p>
-<p>This project empowers developers to build scalable e-commerce solutions effortlessly. The core features include:</p>
+<p>This project serves as a comprehensive solution for developing e-commerce applications, enhancing the dining experience through seamless convenience. The core features include:</p>
 <ul class="list-disc pl-4 my-0">
-<li class="my-0">🛠️ <strong>Modular Architecture:</strong> Facilitates seamless communication between server and client, enhancing maintainability.</li>
-<li class="my-0">🔒 <strong>User Authentication:</strong> Secure login and registration processes ensure data integrity and user privacy.</li>
-<li class="my-0">📦 <strong>Comprehensive API Management:</strong> Efficiently handles food, user, cart, order, and reservation operations, streamlining development.</li>
-<li class="my-0">🎨 <strong>Dynamic Frontend Integration:</strong> Built with React and Vite for a responsive and interactive user experience.</li>
-<li class="my-0">🛠️ <strong>Admin Panel Functionality:</strong> Simplifies management tasks for administrators, enhancing operational efficiency.</li>
+<li class="my-0"><strong>🔒 Secure User Authentication:</strong> Protects user data with robust security measures.</li>
+<li class="my-0"><strong>🛠️ Modular Architecture:</strong> Facilitates maintainability and scalability for developers.</li>
+<li class="my-0"><strong>📡 Efficient API Management:</strong> Simplifies communication between frontend and backend.</li>
+<li class="my-0"><strong>🎨 Dynamic Frontend with React and Vite:</strong> Delivers a modern, responsive user interface.</li>
+<li class="my-0"><strong>📊 Admin Panel for Management Tasks:</strong> Empowers developers to manage data effectively.</li>
+<li class="my-0"><strong>🍽️ Comprehensive Reservation and Order Management:</strong> Enhances functionality for seamless user interactions.</li>
 </ul>
 <hr>
 <h2>Getting Started</h2>
@@ -90,4 +92,4 @@
 </code></pre>
 <hr>
 <div align="left" class=""><a href="#top">⬆ Return</a></div>
-<hr></div>
+<hr></div></div></div>
