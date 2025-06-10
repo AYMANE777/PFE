@@ -20,7 +20,7 @@
 .reservation-card {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 35px;
     align-items: center;
     padding: 20px;
     border: 1px solid #f5b5b5;

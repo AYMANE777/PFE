@@ -4,6 +4,7 @@ import { assets } from '../../assets/frontend_assets/assets.js';
 import { StoreContext } from '../../context/StoreContext.jsx';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import Swal from "sweetalert2";
 
 function LoginPopup({ setShowLogin }) {
   const { url, token, setToken } = useContext(StoreContext);
@@ -27,13 +28,23 @@ function LoginPopup({ setShowLogin }) {
 
     try {
       const response = await axios.post(newUrl, data);
+
       if (response.data.success) {
-        toast.success(response.data.message);
+        Swal.fire({
+          title: "Success",
+          text: "Welcome",
+          icon: "success"
+        });
         setToken(response.data.token);
         localStorage.setItem('token', response.data.token);
         setShowLogin(false);
       } else {
-        toast.error(response.data.message);
+        Swal.fire({
+          title: "Oops...",
+          text: response.data.msg,
+          icon: "error"
+        });
+
       }
     } catch (error) {
       console.error('Login error:', error);

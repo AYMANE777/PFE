@@ -11,7 +11,7 @@ function Verify() {
     const {url} = useContext(StoreContext);
     const verifyPayment = async () => {
       
-        const response = await axios.post(`${url}api/order/verify`, {
+        const response = await axios.post(`${url}/api/order/verify`, {
         success,orderId
         })
         if(response.data.success){

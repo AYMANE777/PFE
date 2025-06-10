@@ -100,7 +100,7 @@ function MyReservations() {
                 {data.length > 0 ? (
                     data.map((reserv, index) => (
                         <div key={index} className="reservation-card">
-                            <img src={assets.parcel_icon} alt="Reservation" />
+                            <img src={assets.booking} alt="Reservation" />
                             <div className="reservation-info">
                                 <p><strong>Name:</strong> {reserv.name}</p>
                                 <p><strong>Email:</strong> {reserv.email}</p>
