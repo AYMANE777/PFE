@@ -1,5 +1,6 @@
 import foodModel from "../models/foodModel.js";
 import * as fs from "node:fs";
+import orderModel from "../models/orderModel.js";
 
 const addFood = async (req, res) => {
 
@@ -21,6 +22,10 @@ const addFood = async (req, res) => {
             res.json({success: false, message:"error"});
     }
 }
+
+
+
+
 
 //food List
 const listFood = async (req, res) => {
@@ -45,5 +50,39 @@ const removeFood = async (req, res) => {
         res.json({success: false, message:"error"});
     }
 }
+//Update Food
+const updateFood = async (req, res) => {
+    try {
+        const { id, name, description, category, price } = req.body;
 
-export {addFood,listFood,removeFood};
+        const updatedFood = await foodModel.findByIdAndUpdate(
+            id,
+            { name,description, category, price },
+            { new: true } // returns the updated document
+        );
+
+        if (!updatedFood) {
+            return res.json({ success: false, message: "Food not found" });
+        }
+
+        res.json({ success: true, message: "Food updated", data: updatedFood });
+    } catch (err) {
+        console.log(err);
+        res.json({ success: false, message: "Error updating food" });
+    }
+};
+
+
+
+// Get total number of food items
+const getTotalFood = async (req, res) => {
+    try {
+        const count = await foodModel.countDocuments();
+        res.json({ success: true, total: count });
+    } catch (err) {
+        console.log(err);
+        res.json({ success: false, message: "error" });
+    }
+}
+
+export {addFood,listFood,removeFood,getTotalFood,updateFood };
