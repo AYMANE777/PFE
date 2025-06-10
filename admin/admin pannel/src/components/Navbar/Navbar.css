@@ -1,15 +1,51 @@
+:root {
+    --primary-color: #2563eb;
+    --text-color: #1e293b;
+    --border-color: #e2e8f0;
+    --hover-bg: #f1f5f9;
+}
+
 .navbar {
     background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 5%;
+    padding: 12px 5%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .logo {
     height: 40px;
+    width: 40px;
     object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.app-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
 .profile {
@@ -18,4 +54,52 @@
     width: 40px;
     border-radius: 50%;
     object-fit: cover;
+    border: 2px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+
+.profile:hover {
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+    background-color: var(--hover-bg);
+}
+
+.settings-btn:hover {
+    color: var(--primary-color);
+}
+
+.logout-btn:hover {
+    color: #ef4444;
+}
+
+/* Accessibilité */
+.profile:focus-visible,
+.nav-btn:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+    .app-name {
+        display: none;
+    }
+
+    .navbar {
+        padding: 10px 3%;
+    }
 }

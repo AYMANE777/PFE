@@ -1,34 +1,92 @@
 import React from 'react';
-import "./Sidebar.css"
-import {assets} from "../../assets/assets.js";
-import {NavLink} from "react-router-dom";
-import reserv from "../../assets/reservation.png";
-function Sidebar(props) {
+import "./Sidebar.css";
+import { NavLink, useLocation } from "react-router-dom";
+import {
+    FiHome,
+    FiPlusSquare,
+    FiList,
+    FiShoppingBag,
+    FiCalendar,
+    FiSettings,
+    FiLogOut
+} from "react-icons/fi";
+
+function Sidebar({ onLogout }) {
+    const location = useLocation();
+    const isMobile = window.innerWidth <= 768;
+
+    const menuItems = [
+        {
+            path: "/",
+            name: "Dashboard",
+            icon: <FiHome size={isMobile ? 20 : 18} />,
+            exact: true
+        },
+        {
+            path: "/add",
+            name: "Add Items",
+            icon: <FiPlusSquare size={isMobile ? 20 : 18} />,
+            exact: false
+        },
+        {
+            path: "/list",
+            name: "Menu Items",
+            icon: <FiList size={isMobile ? 20 : 18} />,
+            exact: false
+        },
+        {
+            path: "/orders",
+            name: "Orders",
+            icon: <FiShoppingBag size={isMobile ? 20 : 18} />,
+            exact: false
+        },
+        {
+            path: "/reservation",
+            name: "Reservations",
+            icon: <FiCalendar size={isMobile ? 20 : 18} />,
+            exact: false
+        }
+    ];
+
     return (
-        <div className="sidebar">
-            <div className="sidebar-options">
-                <NavLink to="/" className="sidebar-option">
-                    <img src={assets.dashboard} alt=""/>
-                    <p>Dashboard</p>
-                </NavLink>
-                <NavLink to="/add" className="sidebar-option">
-                    <img src={assets.add_icon} alt=""/>
-                    <p>Add Items</p>
-                </NavLink>
-                <NavLink to="/list" className="sidebar-option">
-                    <img src={assets.order_check} alt=""/>
-                    <p>List Food</p>
-                </NavLink>
-                <NavLink to="/orders" className="sidebar-option">
-                    <img src={assets.order_icon} alt=""/>
-                    <p>Orders</p>
-                </NavLink>
-                <NavLink to="/reservation" className="sidebar-option">
-                    <img src={assets.reserv} alt=""/>
-                    <p>Reservations</p>
-                </NavLink>
+        <aside className="sidebar" aria-label="Main navigation">
+            <div className="sidebar-header">
+                {!isMobile && <h2 className="sidebar-title">Admin Panel</h2>}
             </div>
-        </div>
+
+            <nav className="sidebar-nav">
+                <ul className="sidebar-options">
+                    {menuItems.map((item) => (
+                        <li key={item.path}>
+                            <NavLink
+                                to={item.path}
+                                className={({ isActive }) =>
+                                    `sidebar-option ${isActive ? "active" : ""}`
+                                }
+                                end={item.exact}
+                                aria-current={location.pathname === item.path ? "page" : undefined}
+                            >
+                <span className="option-icon" aria-hidden="true">
+                  {item.icon}
+                </span>
+                                {!isMobile && <span className="option-text">{item.name}</span>}
+                            </NavLink>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
+
+            <div className="sidebar-footer">
+                <button
+                    className="sidebar-option logout-btn"
+                    onClick={onLogout}
+                    aria-label="Logout"
+                >
+                    <FiLogOut size={isMobile ? 20 : 18} />
+                    {!isMobile && <span>Logout</span>}
+                </button>
+            </div>
+        </aside>
     );
 }
 

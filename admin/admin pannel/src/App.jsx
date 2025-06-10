@@ -9,6 +9,8 @@ import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Reservation from './pages/Reservation/Reservation.jsx';
 import AdminDashboard from "./pages/Status/AdminDashboard.jsx";
+import Profile from "./pages/Profile/Profile.jsx";
+import Settings from "./pages/Settings/Settings.jsx";
 
 function App() {
   const url = "http://localhost:5000";
@@ -22,6 +24,8 @@ function App() {
         <div className="app-content">
           <Routes>
               <Route path="/" element={<AdminDashboard url={url}/>}/>
+              <Route path="/profile" element={<Profile url={url}/>}/>
+              <Route path="/settings" element={<Settings url={url}/>}/>
               <Route path="/add" element={<Add url={url}/>}/>
               <Route path="/list" element={<List url={url}/>}/>
               <Route path="/orders" element={<Orders url={url}/>}/>
