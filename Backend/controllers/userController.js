@@ -15,6 +15,8 @@ const loginUser = async (req, res) => {
         if(!isMatch){
             return res.json({success: false, message: "Wrong Password"});
         }
+        user.lastLogin = new Date();
+        await user.save();
         const token = createToken(user._id);
         res.json({success: true, token: token});
     }catch(err) {
@@ -49,6 +51,7 @@ const registerUser = async (req, res) => {
             name:name,
             email:email,
             password:hashedPassword,
+
         })
 
         const user  =  await newUser.save();
@@ -59,7 +62,78 @@ const registerUser = async (req, res) => {
         res.json({success:false,msg:"Error creating user."});
     }
 }
+// Get total number of users
+const getTotalUsers = async (req, res) => {
+    try {
+        const totalUsers = await userModel.countDocuments();
+        res.json({ success: true, total: totalUsers });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, message: "Failed to fetch total users." });
+    }
+};
+
+// Get weekly client statistics
+const getWeeklyClientStats = async (req, res) => {
+    try {
+        const now = new Date();
+        const startOfWeek = new Date(now);
+        startOfWeek.setDate(now.getDate() - now.getDay() + 1); // Lundi de cette semaine
+        startOfWeek.setHours(0, 0, 0, 0);
+
+        const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+        const result = {};
+
+        for (let i = 0; i < 7; i++) {
+            const dayStart = new Date(startOfWeek);
+            dayStart.setDate(startOfWeek.getDate() + i);
+
+            const dayEnd = new Date(dayStart);
+            dayEnd.setDate(dayStart.getDate() + 1);
+
+            // Compter les nouvelles inscriptions (register)
+            const registeredCount = await userModel.countDocuments({
+                createdAt: {
+                    $gte: dayStart,
+                    $lt: dayEnd
+                }
+            });
+
+            // Compter les connexions (login) - nécessite un champ lastLogin dans votre modèle
+            const loggedInCount = await userModel.countDocuments({
+                lastLogin: {
+                    $gte: dayStart,
+                    $lt: dayEnd
+                }
+            });
+
+            result[weekDays[i]] = {
+                registered: registeredCount,
+                loggedIn: loggedInCount,
+                totalClients: registeredCount // ou loggedInCount selon votre besoin
+            };
+        }
+
+        // Formater les données pour le graphique
+        const formattedData = weekDays.map(day => ({
+            date: day,
+            registered: result[day].registered,
+            loggedIn: result[day].loggedIn,
+            clients: result[day].totalClients // Compatibilité ascendante
+        }));
+
+        res.json({ success: true, data: formattedData });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({
+            success: false,
+            message: "Failed to fetch weekly client statistics."
+        });
+    }
+};
 
 
 
-export {loginUser, registerUser}
+
+export {loginUser, registerUser,getTotalUsers,getWeeklyClientStats}

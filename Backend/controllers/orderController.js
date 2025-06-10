@@ -117,4 +117,61 @@ const updateStatus = async (req, res) => {
     }
 }
 
-export {placeOrder,verifyOrder,userOrders,listOrders,updateStatus}
+const getFoodOrderStatus = async (req, res) => {
+    try {
+        // Get all orders with only necessary fields
+        const orders = await orderModel.find({}, 'items status');
+
+        // Define all possible order statuses
+        const allStatuses = ['Food Processing', 'Out for delivery', 'Delivered']; // Add all your statuses
+
+        const foodStatusMap = {};
+
+        orders.forEach(order => {
+            order.items.forEach(item => {
+                if (!foodStatusMap[item.id]) {
+                    // Initialize with all possible statuses set to 0
+                    const statusCount = {};
+                    allStatuses.forEach(status => {
+                        statusCount[status] = 0;
+                    });
+
+                    foodStatusMap[item.id] = {
+                        id: item.id,
+                        name: item.name || 'Unknown Item', // Handle missing name
+                        totalOrders: 0,
+                        statusCount: statusCount,
+                        totalQuantity: 0
+                    };
+                }
+
+                // Update counts
+                foodStatusMap[item.id].totalOrders++;
+                if (order.status && foodStatusMap[item.id].statusCount[order.status] !== undefined) {
+                    foodStatusMap[item.id].statusCount[order.status]++;
+                }
+                foodStatusMap[item.id].totalQuantity += item.quantity || 0;
+            });
+        });
+
+        const foodStatusArray = Object.values(foodStatusMap);
+
+        res.json({
+            success: true,
+            data: foodStatusArray
+        });
+
+    } catch (err) {
+        console.error("Error in getFoodOrderStatus:", err);
+        res.status(500).json({
+            success: false,
+            message: "Error fetching food order status"
+        });
+    }
+}
+
+
+
+
+
+export {placeOrder,verifyOrder,userOrders,listOrders,updateStatus,getFoodOrderStatus}

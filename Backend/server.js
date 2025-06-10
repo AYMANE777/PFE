@@ -10,6 +10,7 @@ import reservationRouter from "./routes/reservationRoute.js";
 
 
 import dotenv from 'dotenv';
+
 dotenv.config(); // doit être appelé AVANT tout usage de process.env
 
 //app config
@@ -33,6 +34,7 @@ app.use("/api/user",userRouter);
 app.use("/api/cart",cartRouter)
 app.use("/api/order",orderRoute);
 app.use("/api/reservation",reservationRouter);
+
 
 
 
