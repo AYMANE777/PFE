@@ -41,7 +41,7 @@ function LoginPopup({ setShowLogin }) {
       } else {
         Swal.fire({
           title: "Oops...",
-          text: response.data.msg,
+          text: response.data.msg ? "" : "Email Or Password Incorrect",
           icon: "error"
         });
 

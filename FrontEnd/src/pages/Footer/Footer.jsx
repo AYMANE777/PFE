@@ -7,7 +7,7 @@ function Footer() {
     <footer className="footer" id="footer">
       <div className="footer-content">
         <div className="footer-section footer-left">
-          <img src={assets.foodly} alt="BitySnack Logo" className="footer-logo" />
+          <img src={assets.logoF} alt="BitySnack Logo" className="footer-logo" />
           <p className="footer-description">Delicious snacks delivered to your door.</p>
           <div className="footer-social-icons">
             <img src={assets.facebook_icon} alt="Facebook" />
@@ -30,14 +30,14 @@ function Footer() {
           <h2>Get In Touch</h2>
           <ul>
             <li><a href="tel:+212531734209">+212 5 31 73 42 09</a></li>
-            <li><a href="mailto:contact@bitySnack.com">contact@bitySnack.com</a></li>
+            <li><a href="mailto:contact@aherestaurant.com">contact@aherestaurant.com</a></li>
           </ul>
         </div>
       </div>
 
       <hr />
       <p className="footer-copyright">
-        © 2025 BitySnack.com — All Rights Reserved.
+        © 2025 aherestaurant.com — All Rights Reserved.
       </p>
     </footer>
   );

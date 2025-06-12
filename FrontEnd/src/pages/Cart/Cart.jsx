@@ -50,7 +50,7 @@ function Cart() {
                         <hr/>
                         <div className="cart-total-details">
                             <p>Total</p>
-                            <p>${getTotalCartAmount()=== 0 ? 0 :getTotalCartAmount()+2}</p>
+                            <p>{getTotalCartAmount()=== 0 ? 0 :getTotalCartAmount()+2} DH</p>
                         </div>
                     </div>
                     <button onClick={()=>navigate('/order')}>PROCEED TO CHECKOUT</button>

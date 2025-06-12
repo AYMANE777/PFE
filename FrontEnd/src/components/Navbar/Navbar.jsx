@@ -17,7 +17,7 @@ function Navbar({ setShowLogin }) {
 
     return (
         <nav className="navbar">
-            <Link to="/"><img src={assets.foodly} alt="Logo" className="logo" />
+            <Link to="/"><img src={assets.logoh} alt="Logo" className="logo" />
                 </Link>
             
             <ul className="navbar-menu">
