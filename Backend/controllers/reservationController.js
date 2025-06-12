@@ -99,7 +99,21 @@ const deleteReservation = async (req, res) => {
         res.status(500).json({ success: false, message: "Server error" });
     }
 };
+const getReservationCount = async (req, res) => {
+    try {
+        const count = await reservationModel.countDocuments();
+        res.status(200).json({
+            success: true,
+            count: count
+        });
+    } catch (error) {
+        console.error('Error getting reservation count:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Server error while fetching reservation count'
+        });
+    }
+};
 
 
-
-export {createReservation,getAllReservations,getMyReservations,updateReservation,deleteReservation};
+export {createReservation,getAllReservations,getMyReservations,updateReservation,deleteReservation,getReservationCount};

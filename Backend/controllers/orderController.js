@@ -31,7 +31,7 @@ const placeOrder = async (req, res) => {
         // Prepare line items for Stripe
         const line_items = req.body.items.map((item) => ({
             price_data: {
-                currency: "USD",
+                currency: "MAD",
                 product_data: {
                     name: item.name,
                 },
@@ -43,7 +43,7 @@ const placeOrder = async (req, res) => {
         // Add delivery charges
         line_items.push({
             price_data: {
-                currency: "USD",
+                currency: "MAD",
                 product_data: {
                     name: "Delivery Charges",
                 },
