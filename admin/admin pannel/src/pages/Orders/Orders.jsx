@@ -96,7 +96,7 @@ function Orders({ url }) {
 
                             <div className="order-stats">
                                 <span className="items-count">{order.items.length} items</span>
-                                <span className="order-amount">${order.amount.toFixed(2)}</span>
+                                <span className="order-amount">{order.amount.toFixed(2)} DH</span>
                             </div>
 
                             <div className="order-status">
@@ -122,7 +122,7 @@ function Orders({ url }) {
                                             <li key={index}>
                                                 <span className="item-name">{item.name}</span>
                                                 <span className="item-quantity">x{item.quantity}</span>
-                                                <span className="item-price">${(item.price * item.quantity).toFixed(2)}</span>
+                                                <span className="item-price">{(item.price * item.quantity).toFixed(2)} DH</span>
                                             </li>
                                         ))}
                                     </ul>

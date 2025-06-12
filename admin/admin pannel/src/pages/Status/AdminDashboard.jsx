@@ -10,6 +10,7 @@ const AdminDashboard = ({url}) => {
     const [foodOrderStatus, setFoodOrderStatus] = useState([]);
     const [clientStats, setClientStats] = useState([]);
     const [selectedFood, setSelectedFood] = useState(null);
+    const [reservationCount, setReservationCount] = useState(0);
 
     const COLORS = ["#FF8042", "#0088FE", "#00C49F", "#FFBB28", "#8884D8", "#82CA9D"];
 
@@ -34,7 +35,16 @@ const AdminDashboard = ({url}) => {
             console.error("Error fetching food:", error);
         }
     };
-
+    const fetchReservationCount = async () => {
+        try {
+            const response = await axios.get(`${url}/api/reservation/count`);
+            if (response.data.success) {
+                setReservationCount(response.data.count);
+            }
+        } catch (error) {
+            console.error("Error fetching reservation count:", error);
+        }
+    };
     const fetchFoodOrderStatus = async () => {
         try {
             const response = await axios.get(`${url}/api/order/food-status`);
@@ -84,6 +94,7 @@ const AdminDashboard = ({url}) => {
         fetchFood();
         fetchFoodOrderStatus();
         fetchClientStats();
+        fetchReservationCount();
     }, []);
 
 
@@ -115,8 +126,8 @@ const AdminDashboard = ({url}) => {
                     <p>{data}</p>
                 </div>
                 <div className="status-card">
-                    <h3>Reservations Today</h3>
-                    <p>25</p>
+                    <h3>Total Reservations</h3>
+                    <p>{reservationCount}</p>
                 </div>
             </div>
 

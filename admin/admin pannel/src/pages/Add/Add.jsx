@@ -125,7 +125,7 @@ function Add({ url }) {
             <div className="form-section">
               <label className="section-label">Product Price</label>
               <div className="price-input-container">
-                <span className="currency-symbol">$</span>
+                <span className="currency-symbol">DH</span>
                 <input
                     type="number"
                     name="price"

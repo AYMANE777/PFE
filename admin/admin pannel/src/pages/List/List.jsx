@@ -156,7 +156,7 @@ function List({ url }) {
                                         </div>
                                         <div className="cell">
                                             <div className="price-input">
-                                                <span>$</span>
+
                                                 <input
                                                     type="number"
                                                     name="price"
@@ -166,6 +166,7 @@ function List({ url }) {
                                                     step="0.01"
                                                     min="0"
                                                 />
+                                                <span>DH</span>
                                             </div>
                                         </div>
                                         <div className="cell actions">
@@ -193,7 +194,7 @@ function List({ url }) {
                                         <div className="cell">{item.name}</div>
                                         <div className="cell description">{item.description}</div>
                                         <div className="cell">{item.category}</div>
-                                        <div className="cell">${item.price.toFixed(2)}</div>
+                                        <div className="cell">{item.price.toFixed(2)} DH</div>
                                         <div className="cell actions">
                                             <button
                                                 className="edit-btn"
