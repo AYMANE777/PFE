@@ -28,7 +28,7 @@ function LoginPopup({ setShowLogin }) {
 
     try {
       const response = await axios.post(newUrl, data);
-
+      console.log(response)
       if (response.data.success) {
         Swal.fire({
           title: "Success",
@@ -41,7 +41,7 @@ function LoginPopup({ setShowLogin }) {
       } else {
         Swal.fire({
           title: "Oops...",
-          text: response.data.msg ? "" : "Email Or Password Incorrect",
+          text: response.data ? response.data.msg : "Email Or Password Incorrect",
           icon: "error"
         });
 

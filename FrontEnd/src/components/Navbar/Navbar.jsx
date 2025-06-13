@@ -6,6 +6,7 @@ import { StoreContext } from "../../context/StoreContext.jsx";
 
 function Navbar({ setShowLogin }) {
     const [menu, setMenu] = useState("home");
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
     const navigate = useNavigate();
 
@@ -45,9 +46,9 @@ function Navbar({ setShowLogin }) {
                 {!token ? (
                     <button className="signin-btn" onClick={() => setShowLogin(true)}>Sign In</button>
                 ) : (
-                    <div className="navbar-profile">
+                    <div className="navbar-profile"  onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
                         <img src={assets.profile_icon} alt="Profile" />
-                        <ul className="nav-profile-dropdown">
+                        <ul className={`nav-profile-dropdown ${isDropdownOpen ? 'active' : ''}`} onClick={(e) => e.stopPropagation()}>
                             <li onClick={() => navigate("/myorders")}>
                                 <img src={assets.bag_icon} alt="Orders" />
                                 <p>Orders</p>
