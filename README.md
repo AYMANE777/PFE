@@ -1,7 +1,7 @@
 <div class="border border-border rounded-lg bg-background p-6 shadow-sm"><div class="prose prose-sm md:prose-base lg:prose-lg max-w-none prose-headings:font-bold prose-a:text-blue-600" style="user-select: none;"><div id="top" class="">
 
 <div align="center" class="text-center">
-<h1>PFE</h1>
+<h1>Ecomm-restaurant</h1>
 <p><em>Elevate dining experiences with seamless e-commerce solutions.</em></p>
 
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/AYMANE777/PFE?style=flat&amp;logo=git&amp;logoColor=white&amp;color=0080ff" class="inline-block mx-1" style="margin: 0px 2px;">
@@ -70,7 +70,7 @@
 </li>
 <li class="my-0">
 <p><strong>Navigate to the project directory:</strong></p>
-<pre><code class="language-sh">❯ cd PFE
+<pre><code class="language-sh">❯ cd Ecomm-restaurant
 </code></pre>
 </li>
 <li class="my-0">
